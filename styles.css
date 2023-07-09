@@ -42,7 +42,7 @@
     position: relative;
 }
 .input-box button{
-    background: black;
+    background: lightslategray;
     border: 0;
     outline: 0;
     padding: 15px 30px;
@@ -52,5 +52,17 @@
     cursor: pointer;
 }
 .input-box button:hover{
-    background: green;
+    background: black;
+}
+.input-box input::-webkit-calendar-picker-indicator{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    position: absolute;
+    background-position: calc(100% - 10px);
+    background-size: 30px;
+    cursor: pointer;
 }
