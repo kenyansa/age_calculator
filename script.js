@@ -5,8 +5,8 @@ userInput.max = new Date().toISOString().split("T")[0]; //for selecting valid da
 function calculateAge(){
     let birthDate = new Date(userInput.value)
     let d1 = birthDate.getDate();
-    let m1 = birthDate.getMonth()*1;
-    get y1 = birthDate.getFullYear();
+    let m1 = birthDate.getMonth()+1;
+    let y1 = birthDate.getFullYear();
 
     let today = new Date
 
@@ -27,7 +27,17 @@ function calculateAge(){
     if(d2>=d1){
         d3= d2 - d1;
     }else{
-
+        m3--;
+        d3 = getDaysInAMonth(y1,m1) + d2-d1;
     }
 
+    if(m3<0){
+        m3=11;
+        y3--;
+    }
+    console.log(y3, m3, d3);
+}
+
+function getDaysInAMonth(year, month){
+    return new Date (year, month, 0).getDate();
 }
