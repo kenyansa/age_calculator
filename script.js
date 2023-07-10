@@ -6,6 +6,10 @@ let result = document.getElementById("result")
 if(localStorage.getItem('ageData')){
     result.innerHTML = localStorage.getItem('ageData')
 }
+//checking if input value exists in the localStorage
+if (localStorage.getItem('ageInputValue')){
+    userInput.value = localStorage.getItem('ageInputValue');
+}
 
 //..toISOString() converts the Date object into an ISO 8601 date string format, which has the format "YYYY-MM-DDTHH:mm:ss.sssZ".
 //split('T')[0] splits the ISO string at the 'T' character and retrieves the first part, which represents the date in the format "YYYY-MM-DD".
@@ -47,6 +51,8 @@ function calculateAge(){
     result.innerHTML = ageData;
     //store age data in localStorage
     localStorage.setItem('ageData', ageData);
+    //store age input value in localStorage
+    localStorage.setItem('ageInputValue', userInput.value);
 }
 
 function getDaysInAMonth(year, month){
