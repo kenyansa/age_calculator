@@ -15,7 +15,7 @@
 .calculator{
     width: 90%;
     max-width: 600px;
-    margin-left: 10% auto; 
+    margin: 10% auto; 
     text-align: center;
 } 
 .calculator h1{
@@ -37,7 +37,7 @@
 }
 .input-box input{
     flex: 1;
-    margin: 10px 0;
+    margin-right: 10px;
     padding: 15px;
     border: 0;
     outline: 0;
@@ -48,6 +48,7 @@
 .input-box button{
     background: lightslategray;
     margin-top: 10px;
+    margin-left: 10px;
     padding: 15px 30px;
     border-radius: 5px;
     font-weight: 500;
