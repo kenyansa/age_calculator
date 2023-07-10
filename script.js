@@ -2,6 +2,11 @@ let userInput = document.getElementById('date')
 userInput.max = new Date().toISOString().split("T")[0]; //for selecting valid dates, today and backwards
 let result = document.getElementById("result")
 
+//check is age data exists in localStorage
+if(localStorage.getItem('ageData')){
+    result.innerHTML = localStorage.getItem('ageData')
+}
+
 //..toISOString() converts the Date object into an ISO 8601 date string format, which has the format "YYYY-MM-DDTHH:mm:ss.sssZ".
 //split('T')[0] splits the ISO string at the 'T' character and retrieves the first part, which represents the date in the format "YYYY-MM-DD".
 function calculateAge(){
@@ -37,7 +42,11 @@ function calculateAge(){
         m3=11;
         y3--;
     }
-    result.innerHTML = `You are <span>${y3}</span> year${y3 !==1 ? 's' : ''}, <span>${m3}</span> month${m3 !==1 ? 's' : ''} and <span>${d3}</span> day${d3 !==1 ? 's' : ''} old!`; //add ternary operator to handle singular and plural values
+    let ageData = `You are <span>${y3}</span> year${y3 !==1 ? 's' : ''}, <span>${m3}</span> month${m3 !==1 ? 's' : ''} and <span>${d3}</span> day${d3 !==1 ? 's' : ''} old!`; //add ternary operator to handle singular and plural values
+
+    result.innerHTML = ageData;
+    //store age data in localStorage
+    localStorage.setItem('ageData', ageData);
 }
 
 function getDaysInAMonth(year, month){
